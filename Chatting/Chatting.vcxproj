@@ -132,12 +132,14 @@
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageCollection.cpp" />
+    <ClCompile Include="SendBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="ConsoleHelper.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="MessageCollection.h" />
+    <ClInclude Include="SendBuffer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,7 @@
 #include "GUI.h"
 #include <iostream>
 #include "ConsoleHelper.h"
+#include "SendBuffer.h"
 GUI::GUI(int main_width, int main_height, int sub_widht, int sub_height)
 {
 
@@ -8,7 +9,6 @@ GUI::GUI(int main_width, int main_height, int sub_widht, int sub_height)
 	m_main_width = main_width;
 	m_sub_width = sub_widht;
 	m_sub_height = sub_height;
-
 	m_main_box.resize(main_height, std::vector<TileType>(main_width, NONE));
 	m_sub_box.resize(sub_height, std::vector<TileType>(sub_widht, NONE));
 
@@ -36,6 +36,11 @@ GUI::GUI(int main_width, int main_height, int sub_widht, int sub_height)
 	}
 
 
+}
+
+void GUI::BufferRender(SendBuffer* send_buffer)
+{
+	printf("%s", send_buffer);
 }
 
 const char* GUI::GetMainTileType(TileType data)

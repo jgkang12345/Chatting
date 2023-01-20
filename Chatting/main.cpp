@@ -10,9 +10,6 @@
 #include "App.h"
 #pragma comment(lib, "Winmm.lib")
 
-
-
-
 App app;
 int main() 
 {

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+class SendBuffer;
 enum TileType
 {
 	NONE = 0,
@@ -16,10 +17,9 @@ private:
 	int m_sub_height;
 	std::vector<std::vector<TileType>> m_main_box;
 	std::vector<std::vector<TileType>> m_sub_box;
-	
 public:
 	GUI(int main_width, int main_height, int sub_widht, int sub_height);
-	
+	void BufferRender(SendBuffer* send_buffer);
 public:
 	const char* GetMainTileType(TileType data);
 	void Render();
