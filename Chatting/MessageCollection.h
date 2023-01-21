@@ -1,18 +1,19 @@
 #pragma once
 #include <iostream>
 #include <vector>
-#include <Windows.h>
-struct Message 
+struct Message
 {
 public:
-	char m_msg [100];
-	DWORD  m_order;
+	char m_msg[100];
+	char m_name[30];
+	double  m_order;
 	bool m_is_me = true;
 
 public:
-	Message() {};
-	Message(char* msg, unsigned long long order)
+	Message() { m_order = 0; };
+	Message(char* name, char* msg, double order)
 	{
+		strcpy_s(m_name, name);
 		strcpy_s(m_msg, msg);
 		m_order = order;
 	};
@@ -32,11 +33,11 @@ private:
 	int						m_send_content_size;
 
 public:
-	MessageCollection(int size) 
-	{	
+	MessageCollection(int size)
+	{
 		m_send_size = size / 2;
 		m_recive_size = size - m_send_size;
-	
+
 		m_data.resize(size);
 
 		m_send_pivot = 0;
@@ -46,25 +47,39 @@ public:
 		m_send_content_size = 0;
 	}
 
-	~MessageCollection() 
+	MessageCollection(int size, T val)
+	{
+		m_send_size = size / 2;
+		m_recive_size = size - m_send_size;
+
+		m_data.resize(size, val);
+
+		m_send_pivot = 0;
+		m_recive_pivot = 0;
+
+		m_recvie_content_size = 0;
+		m_send_content_size = 0;
+	}
+
+	~MessageCollection()
 	{
 		// TODO	
 	}
 
 public:
-	
+
 	void SendPush(T& data)
 	{
 		data.m_is_me = true;
 		m_data[m_send_pivot++] = data;
 		m_send_content_size++;
-		if (m_send_pivot >= m_send_size) 
+		if (m_send_pivot >= m_send_size)
 		{
 			m_send_content_size--;
 			m_send_pivot = m_send_pivot % m_send_size;
 		}
 	}
-	
+
 	void RecivePush(T& data)
 	{
 		data.m_is_me = false;
@@ -76,15 +91,16 @@ public:
 			m_recive_pivot = m_recive_pivot % m_recive_size;
 		}
 	}
-	
-	int	 TotalSize() 
+
+	int	TotalSize()
 	{
 		return m_recvie_content_size + m_send_content_size;
 	};
 
-	void CopyData(std::vector<T>& cdata) 
+	void CopyData(std::vector<T>& cdata)
 	{
-		memcpy(cdata, m_data, sizeof(m_data));
+		cdata.clear();
+		cdata.assign(m_data.begin(), m_data.end());
 	}
 };
 

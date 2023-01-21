@@ -30,3 +30,11 @@ void ConsoleHelper::SetConsoleSize(int col, int lines)
 	sprintf_s(setText, "mode con cols=%d lines=%d", col, lines);
 	system(setText);
 }
+
+void ConsoleHelper::SetColor(unsigned char _bgColor, unsigned char _TextColor)
+{
+	if (_bgColor > 15 || _TextColor > 15) return;
+
+	unsigned short ColorNum = (_bgColor << 4) | _TextColor;
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), ColorNum);
+}

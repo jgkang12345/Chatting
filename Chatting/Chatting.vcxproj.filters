@@ -13,6 +13,9 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="SendBuffer.cpp" />
+    <ClCompile Include="SocketHelper.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="TimeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MessageCollection.h" />
@@ -20,5 +23,8 @@
     <ClInclude Include="App.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="SendBuffer.h" />
+    <ClInclude Include="SocketHelper.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="TimeUtils.h" />
   </ItemGroup>
 </Project>

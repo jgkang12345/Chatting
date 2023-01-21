@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include "MessageCollection.h"
 class SendBuffer;
 enum TileType
 {
@@ -23,5 +24,6 @@ public:
 public:
 	const char* GetMainTileType(TileType data);
 	void Render();
+	void MsgRender(MessageCollection<Message>* message_collection);
 };
 

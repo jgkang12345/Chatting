@@ -133,6 +133,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MessageCollection.cpp" />
     <ClCompile Include="SendBuffer.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SocketHelper.cpp" />
+    <ClCompile Include="TimeUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h" />
@@ -140,6 +143,9 @@
     <ClInclude Include="GUI.h" />
     <ClInclude Include="MessageCollection.h" />
     <ClInclude Include="SendBuffer.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SocketHelper.h" />
+    <ClInclude Include="TimeUtils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

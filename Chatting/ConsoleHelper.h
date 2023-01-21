@@ -6,4 +6,5 @@ public:
 	static void Clear();
 	static void ShowConsoleCursor(bool showFlag);
 	static void SetConsoleSize(int col, int lines);
+	static void SetColor(unsigned char _bgColor, unsigned char _TextColor);
 };
